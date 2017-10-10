@@ -1,0 +1,36 @@
+USER FLOW:
+
+Search form for finding recipes
+	- What does the user see?
+		o Basic search box for searching for a recipe based on an ingredient or a specific meal
+		o Advanced search options with options for searching based on number of ingredients, diet label, health label, and calorie range/spec
+	- What does the user do?
+		o The user will fill in the search box textually with either a specific ingredient for a recipe or a specific meal/recipe they want to make
+		o The user can also fill out “advanced search options” to narrow their search
+	- What happens next?
+		o The results are displayed
+		o The user can then search for another recipe or refine the search they just made
+		o (Not sure how/if the user will be able to save/print the recipe they select)
+
+Results of search
+	- What does the user see?
+		o The user should see up to 20 results displayed for the search they entered
+		o The user should also see an option to view more results
+		o The user should also see the number of results the search produced
+	- What does the user do?
+		o The user can navigate through the pages of results viewing high level information about each recipe
+		o The user will also have the option of viewing each search result in detail
+	- What happens next?
+		o The user will select a recipe, do another search, or both
+Viewing search result in detail
+	- What does the user see?
+		o Each recipe will have a page with detailed nutritional information about the recipe
+		o The page will also have options for “saving” the recipe nutritional info
+		o The user will also have the option to view the recipe instructions
+	- What does the user do?
+		o The user can scroll through the recipe nutritional info
+		o The user can save the info (not sure how yet)
+		o The user can view the instructions for the recipe on the recipes original site
+	- What happens next?
+		o The user can return to the search results to find another recipe, narrow the search results, or create an entirely different search
+		o The user can view the recipe instructions on the linked website
