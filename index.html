@@ -15,12 +15,50 @@
         Recipe Search Engine for Every Lifestyle!
       </header>
       <main role="main">
-        <h1>Search for Any Recipe</h1>
-        
+        <section class="APIdesc">
+          <h1>Find something to cook</h1>
+          <p>Search by recipe or ingredient.  Refine search by the number of ingredients, diet, allergy, or calories.</p>
+        </section>
+
           <form action="#" class="js-search-form">
             <label for="query"></label>
-            <input type="text" class="js-query" id="query" name="query" title="Recipe Search">
+            <input type="text" class="js-query" id="query" name="query" title="Recipe Search" placeholder="e.g. carrot cake, 15 bean soup, broccoli">
             <button type="submit">Search</button>
+            <br>
+            <label for="calRange">Calorie Range</label>
+            <input type="text" name="calRange" class="low"> to
+            <input type="text" name="calRange" class="high"></input>
+            <br>
+            <label for="numIng">Number of Ingredients</label>
+            <input type="text" name="numIng">
+            <fieldset>
+              <legend>Diet</legend>
+              <input type="checkbox" name="diet">
+              <label for="diet">Balanced</label>
+              <input type="checkbox" name="diet">
+              <label for="diet">High-protein</label>
+              <input type="checkbox" name="diet">
+              <label for="diet">High-Fiber</label>
+              <input type="checkbox" name="diet">
+              <label for="diet">Low-fat</label>
+              <input type="checkbox" name="diet">
+              <label for="diet">Low-carb</label>
+              <input type="checkbox" name="diet">
+              <label for="diet">Low-sodium</label>
+            </fieldset>
+            <fieldset>
+              <legend>Allergy</legend>
+              <input type="checkbox" name="allergy">
+              <label for="allergy">Peanut</label>
+              <input type="checkbox" name="allergy">
+              <label for="allergy">Tree-nut</label>
+              <input type="checkbox" name="allergy">
+              <label for="allergy">Soy</label>
+              <input type="checkbox" name="allergy">
+              <label for="allergy">Fish</label>
+              <input type="checkbox" name="allergy">
+              <label for="allergy">Shellfish</label>
+            </fieldset>
           </form>
           
           <h2>Results</h2>
