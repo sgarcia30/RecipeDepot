@@ -51,20 +51,15 @@ function watchSubmit() {
     // Get recipe or ingredient search term
     const queryTarget = $(event.currentTarget).find('.js-query');
     qVal = queryTarget.val();
-    // clear out the input
-    // queryTarget.val("");
     // Get the number of ingredients
     ingTarget = $(event.currentTarget).find('.numIng');
     numIng = ingTarget.val();
-    // ingTarget.val("");
     // Get the calorie range values
     calLowTarget = $(event.currentTarget).find('.low');
     calHiTarget = $(event.currentTarget).find('.high');
     let low = calLowTarget.val();
-    // calLowTarget.val("");
     let high = calHiTarget.val();
-    // calHiTarget.val("");
-
+    // Use if statements to determine what range(s) are present
     if (low != "" && high != "") {
       calRange = `gte ${low}, lte ${high}`;
     }
@@ -77,17 +72,13 @@ function watchSubmit() {
     else {
       calRange = "";
     }
-
     // Get the diet labels that are checked
     dietTarget = $('input[name=diet]:checked', '.js-search-form');
-    dietLabel = dietTarget.val();
-    // dietTarget.attr('checked',false);
-    // Get the allergy label checked
+    dietLabel = dietTarget.map((index, target) => target.value).toArray();
+    // Get the allergy labels checked
     allTarget = $('input[name=allergy]:checked', '.js-search-form');
-    console.log("something here", allTarget);
     allergyLab = allTarget.map((index, target) => target.value).toArray();
-    console.log(allergyLab);
-    // $('input[name=allergy]', '.js-search-form').attr('checked',false);
+    // Reset the form inputs
     $('.js-search-form')[0].reset();
 
     // Call function to get data from API
