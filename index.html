@@ -30,34 +30,36 @@
             <input type="text" name="calRange" class="high"></input>
             <br>
             <label for="numIng">Number of Ingredients</label>
-            <input type="text" name="numIng">
+            <input type="text" name="numIng" class="numIng">
             <fieldset>
               <legend>Diet</legend>
-              <input type="checkbox" name="diet">
+              <input type="radio" name="diet" value="balanced">
               <label for="diet">Balanced</label>
-              <input type="checkbox" name="diet">
+              <input type="radio" name="diet" value="high-protein">
               <label for="diet">High-protein</label>
-              <input type="checkbox" name="diet">
-              <label for="diet">High-Fiber</label>
-              <input type="checkbox" name="diet">
+              <!-- <input type="radio" name="diet" value="high-fiber">
+              <label for="diet">High-Fiber</label> -->
+              <input type="radio" name="diet" value="low-fat">
               <label for="diet">Low-fat</label>
-              <input type="checkbox" name="diet">
+              <input type="radio" name="diet" value="low-carb">
               <label for="diet">Low-carb</label>
-              <input type="checkbox" name="diet">
-              <label for="diet">Low-sodium</label>
+             <!--  <input type="radio" name="diet" value="low-sodium">
+              <label for="diet">Low-sodium</label> -->
             </fieldset>
             <fieldset>
               <legend>Allergy</legend>
-              <input type="checkbox" name="allergy">
+              <input type="checkbox" name="allergy" value="peanut-free">
               <label for="allergy">Peanut</label>
-              <input type="checkbox" name="allergy">
+              <input type="checkbox" name="allergy" value="tree-nut-free">
               <label for="allergy">Tree-nut</label>
-              <input type="checkbox" name="allergy">
-              <label for="allergy">Soy</label>
-              <input type="checkbox" name="allergy">
-              <label for="allergy">Fish</label>
-              <input type="checkbox" name="allergy">
-              <label for="allergy">Shellfish</label>
+              <input type="checkbox" name="allergy" value="vegetarian">
+              <label for="allergy">Vegetarian</label>
+              <input type="checkbox" name="allergy" value="vegan">
+              <label for="allergy">Vegan</label>
+              <input type="checkbox" name="allergy" value="sugar-conscious">
+              <label for="allergy">Sugar-conscious</label>
+              <input type="checkbox" name="allergy" value="alcohol-free">
+              <label for="allergy">Alcohol-free</label>
             </fieldset>
           </form>
           
