@@ -9,7 +9,7 @@ Search form for finding recipes
 		o The user can also fill out “advanced search options” to narrow their search
 	- What happens next?
 		o The results are displayed
-		o The user can then search for another recipe or refine the search they just made
+		o The user can then search for another recipe or (maybe...) refine the search they just made
 		o (Not sure how/if the user will be able to save/print the recipe they select)
 
 Results of search

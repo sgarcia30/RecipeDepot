@@ -5,6 +5,7 @@ let numIng;
 let calRange;
 let dietLabel;
 let allergyLab;
+let searchResults;
 
 
 function getDataFromApi(searchTerm, callback, numIng, calRange, dietLabel, allergyLab) {
@@ -15,13 +16,13 @@ function getDataFromApi(searchTerm, callback, numIng, calRange, dietLabel, aller
       app_key: 'ec9336245111d37ee12a4e9ae1777690',
       app_id: 'b3f870bd',
       from: 0,
-      to: 100
+      to: 20
     },
     dataType: 'json',
     type: 'GET',
     success: callback
   };
-
+  // Use if statements to determine if each of these parameters are being searched
   if (numIng != "") {
     settings.data.ingr = numIng;
   }
@@ -37,12 +38,57 @@ function getDataFromApi(searchTerm, callback, numIng, calRange, dietLabel, aller
   if (calRange != "") {
     settings.data.calories = calRange;
   }
-
+  // Make call to API with ajax
   $.ajax(settings);
+}
+
+function renderResult(result, index) {
+  return `
+    <div class="resRecipe">
+      <h2>
+      ${result.recipe.label}
+      </h2>
+      <h3>
+      <img src="${result.recipe.image}" alt="${result.recipe.label}" class="imgResult"/>
+      </h3>
+    </div>
+  `;
+}
+
+// This function hides the form & instructions
+function hideSearchEng() {
+  $('.js-search-form').hide();
+  $('.APIdesc').hide();
 }
 
 function displayRecipeSearchData(data) {
   console.log(data);
+  searchResults = data;
+  const results = data.hits.map((item, index) => renderResult(item, index));
+  hideSearchEng();
+  $('.js-search-results').html(results);
+}
+
+function hideResults() {
+  $('.js-search-results').hide();
+}
+
+function showResult() {
+  $('.js-search-results').on('click', '.resRecipe', function() {
+    hideResults();
+    console.log($(this));
+    let resInd = $(this).index();
+    $('.oneResult').html(`
+    <div>
+      <h2>
+      ${searchResults.hits[resInd].recipe.label}
+      </h2>
+      <h3>
+      <img src="${searchResults.hits[resInd].recipe.image}" alt="${searchResults.hits[resInd].recipe.label}" class="imgResult"/>
+      </h3>
+    </div>
+  `);
+  });
 }
 
 function watchSubmit() {
@@ -84,6 +130,7 @@ function watchSubmit() {
     // Call function to get data from API
     getDataFromApi(qVal, displayRecipeSearchData, numIng, calRange, dietLabel, allergyLab);
   });
+  showResult();
 }
 
 $(watchSubmit);
