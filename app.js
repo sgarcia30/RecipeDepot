@@ -6,6 +6,7 @@ let calRange;
 let dietLabel;
 let allergyLab;
 let searchResults;
+let calValue;
 
 
 function getDataFromApi(searchTerm, callback, numIng, calRange, dietLabel, allergyLab) {
@@ -43,6 +44,7 @@ function getDataFromApi(searchTerm, callback, numIng, calRange, dietLabel, aller
 }
 
 function renderResult(result, index) {
+  let calCount = Math.floor(result.recipe.calories/result.recipe.yield);
   return `
     <div class="resRecipe">
       <h2>
@@ -51,6 +53,10 @@ function renderResult(result, index) {
       <h3>
       <img src="${result.recipe.image}" alt="${result.recipe.label}" class="imgResult"/>
       </h3>
+      <div>
+      Number of Ingredients: ${result.recipe.ingredients.length}
+      Calories per Serving: ${calCount}
+      </div>
     </div>
   `;
 }
@@ -61,11 +67,33 @@ function hideSearchEng() {
   $('.APIdesc').hide();
 }
 
+function showSearchParameters() {
+   $('.searchParameters').html(`
+      <h2>Number of Results: ${searchResults.count}</h2>
+      <h2>Search Term: ${searchResults.params.q}</h2>
+      Advance Search Parameters
+      <ul> 
+        <li>Calorie Range: ${calValue}</li>
+        <li>Number of Ingredients: ${numIng}</li>
+        <li>Diet Labels: ${dietLabel}</li>
+        <li>Allergies: ${allergyLab}</li>
+      </ul>
+    `);
+}
+
+function returnToSearchResults() {
+  $('.oneResult').on('click', '.returnSearch', function() {
+    $('.js-search-results').show();
+    $('.oneResult').hide();
+  })
+}
+
 function displayRecipeSearchData(data) {
   console.log(data);
   searchResults = data;
   const results = data.hits.map((item, index) => renderResult(item, index));
   hideSearchEng();
+  showSearchParameters();
   $('.js-search-results').html(results);
 }
 
@@ -76,10 +104,11 @@ function hideResults() {
 function showResult() {
   $('.js-search-results').on('click', '.resRecipe', function() {
     hideResults();
-    console.log($(this));
+    $('.oneResult').show();
     let resInd = $(this).index();
     $('.oneResult').html(`
     <div>
+      <button type="submit" name="returnSearch" class="returnSearch">Search Results</button>
       <h2>
       ${searchResults.hits[resInd].recipe.label}
       </h2>
@@ -108,15 +137,19 @@ function watchSubmit() {
     // Use if statements to determine what range(s) are present
     if (low != "" && high != "") {
       calRange = `gte ${low}, lte ${high}`;
+      calValue = `${low} to ${high}`;
     }
     else if (high != "") {
       calRange = `lte ${high}`;
+      calValue = `Max Calories ${high}`;
     }
     else if (low != ""){
       calRange = `gte ${low}`;
+      calValue = `Min Calories ${low}`;
     }
     else {
       calRange = "";
+      calValue = "";
     }
     // Get the diet labels that are checked
     dietTarget = $('input[name=diet]:checked', '.js-search-form');
@@ -131,6 +164,7 @@ function watchSubmit() {
     getDataFromApi(qVal, displayRecipeSearchData, numIng, calRange, dietLabel, allergyLab);
   });
   showResult();
+  returnToSearchResults();
 }
 
 $(watchSubmit);

@@ -22,6 +22,7 @@ Results of search
 		o The user will also have the option of viewing each search result in detail
 	- What happens next?
 		o The user will select a recipe, do another search, or both
+
 Viewing search result in detail
 	- What does the user see?
 		o Each recipe will have a page with detailed nutritional information about the recipe
@@ -29,7 +30,7 @@ Viewing search result in detail
 		o The user will also have the option to view the recipe instructions
 	- What does the user do?
 		o The user can scroll through the recipe nutritional info
-		o The user can save the info (not sure how yet)
+		o The user can save the info (not sure how yet) - Nix this functionality beyond scope
 		o The user can view the instructions for the recipe on the recipes original site
 	- What happens next?
 		o The user can return to the search results to find another recipe, narrow the search results, or create an entirely different search
