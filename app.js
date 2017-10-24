@@ -7,6 +7,7 @@ let dietLabel;
 let allergyLab;
 let searchResults;
 let calValue;
+let calCount;
 
 
 function getDataFromApi(searchTerm, callback, numIng, calRange, dietLabel, allergyLab) {
@@ -44,7 +45,7 @@ function getDataFromApi(searchTerm, callback, numIng, calRange, dietLabel, aller
 }
 
 function renderResult(result, index) {
-  let calCount = Math.floor(result.recipe.calories/result.recipe.yield);
+  calCount = Math.floor(result.recipe.calories/result.recipe.yield);
   return `
     <div class="resRecipe">
       <h2>
@@ -55,7 +56,7 @@ function renderResult(result, index) {
       </h3>
       <div>
       Number of Ingredients: ${result.recipe.ingredients.length}
-      Calories per Serving: ${calCount}
+      | Calories per Serving: ${calCount}
       </div>
     </div>
   `;
@@ -73,8 +74,8 @@ function showSearchParameters() {
       <h2>Search Term: ${searchResults.params.q}</h2>
       Advance Search Parameters
       <ul> 
-        <li>Calorie Range: ${calValue}</li>
-        <li>Number of Ingredients: ${numIng}</li>
+        <li>Calories: ${calValue}</li>
+        <li>Max Number of Ingredients: ${numIng}</li>
         <li>Diet Labels: ${dietLabel}</li>
         <li>Allergies: ${allergyLab}</li>
       </ul>
@@ -101,24 +102,47 @@ function hideResults() {
   $('.js-search-results').hide();
 }
 
+function renderIngList(item, index) {
+  return `
+    <li>${item}</li?
+  `;
+}
+
 function showResult() {
   $('.js-search-results').on('click', '.resRecipe', function() {
     hideResults();
     $('.oneResult').show();
     let resInd = $(this).index();
-    $('.oneResult').html(`
-    <div>
+    $('.recipeInfo').html(`
       <button type="submit" name="returnSearch" class="returnSearch">Search Results</button>
       <h2>
-      ${searchResults.hits[resInd].recipe.label}
+        ${searchResults.hits[resInd].recipe.label}
       </h2>
       <h3>
-      <img src="${searchResults.hits[resInd].recipe.image}" alt="${searchResults.hits[resInd].recipe.label}" class="imgResult"/>
+        <img src="${searchResults.hits[resInd].recipe.image}" alt="${searchResults.hits[resInd].recipe.label}" class="imgResult"/>
       </h3>
-    </div>
-  `);
+    `);
+    $('.ingredients').html(`
+      <h4>${searchResults.hits[resInd].recipe.ingredients.length} Ingredients</h4>
+      <ul class="liIng">          
+      </ul>
+    `);
+    let ingResults = searchResults.hits[resInd].recipe.ingredientLines.map((item, index) => renderIngList(item, index));
+    $('.liIng').append(ingResults);
+    $('.prep').html(`
+      <h4>Recipe Instructions</h4>
+      <a class="instrucBut" target="_blank" href=${searchResults.hits[resInd].recipe.url}>
+        <span>Instructions</span>
+      </a>
+    `);
+    $('.nutrition').html(`
+      
+      `);
   });
 }
+
+
+              
 
 function watchSubmit() {
   $('.js-search-form').submit(event => {
