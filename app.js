@@ -18,7 +18,7 @@ function getDataFromApi(searchTerm, callback, numIng, calRange, dietLabel, aller
       app_key: 'ec9336245111d37ee12a4e9ae1777690',
       app_id: 'b3f870bd',
       from: 0,
-      to: 20
+      to: 30
     },
     dataType: 'json',
     type: 'GET',
@@ -46,13 +46,19 @@ function getDataFromApi(searchTerm, callback, numIng, calRange, dietLabel, aller
 
 function renderResult(result, index) {
   calCount = Math.floor(result.recipe.calories/result.recipe.yield);
+  
+  let itemImg = "http://www.readersdigest.ca/wp-content/uploads/2011/01/4-ways-cheer-up-depressed-cat.jpg";
+  if (result.recipe.image !== "https://www.edamam.com/web-img/d10/d10f3cd0564a9c2a4a7db3e1b49041f8.gif") {
+    itemImg = result.recipe.image;
+  }
+
   return `
     <div class="resRecipe">
       <h2>
       ${result.recipe.label}
       </h2>
       <h3>
-      <img src="${result.recipe.image}" alt="${result.recipe.label}" class="imgResult"/>
+      <img src="${itemImg}" alt="${result.recipe.label}" class="imgResult"/>
       </h3>
       <div>
       Number of Ingredients: ${result.recipe.ingredients.length}
@@ -70,7 +76,6 @@ function hideSearchEng() {
 
 function showSearchParameters() {
    $('.searchParameters').html(`
-      <h2>Number of Results: ${searchResults.count}</h2>
       <h2>Search Term: ${searchResults.params.q}</h2>
       Advance Search Parameters
       <ul> 
@@ -89,12 +94,33 @@ function returnToSearchResults() {
   })
 }
 
+function newSearch() {
+  $('.newSearch').on('click', '.newSearchBut', function() {
+    $('.js-search-form').show();
+    $('.APIdesc').show();
+    $('.oneResult').hide();
+    $('.js-search-results').hide();
+    $('.searchParameters').hide();
+    $('.newSearch').hide();
+  })
+}
+
+function showNewSearchOption() {
+  $('.newSearch').html(`
+    <button type="submit" name="newSearchBut" class="newSearchBut">New Search</button>
+  `);
+}
+
 function displayRecipeSearchData(data) {
   console.log(data);
   searchResults = data;
   const results = data.hits.map((item, index) => renderResult(item, index));
   hideSearchEng();
   showSearchParameters();
+  showNewSearchOption();
+  $('.searchParameters').show();
+    $('.newSearch').show();
+  $('.js-search-results').show();
   $('.js-search-results').html(results);
 }
 
@@ -104,7 +130,7 @@ function hideResults() {
 
 function renderIngList(item, index) {
   return `
-    <li>${item}</li?
+    <li>${item}</li>
   `;
 }
 
@@ -122,27 +148,42 @@ function showResult() {
         <img src="${searchResults.hits[resInd].recipe.image}" alt="${searchResults.hits[resInd].recipe.label}" class="imgResult"/>
       </h3>
     `);
+
     $('.ingredients').html(`
       <h4>${searchResults.hits[resInd].recipe.ingredients.length} Ingredients</h4>
       <ul class="liIng">          
       </ul>
     `);
+
     let ingResults = searchResults.hits[resInd].recipe.ingredientLines.map((item, index) => renderIngList(item, index));
     $('.liIng').append(ingResults);
+
+    let url = searchResults.hits[resInd].recipe.url;
+    let lastChar = url.substr(url.length - 1);
+    if ( lastChar === "/") {
+      url = url.slice(0, -1);
+    }
+
     $('.prep').html(`
       <h4>Recipe Instructions</h4>
-      <a class="instrucBut" target="_blank" href=${searchResults.hits[resInd].recipe.url}>
-        <span>Instructions</span>
-      </a>
+      <a class="instrucBut" target="_blank" href=${url}>Instructions</a>
     `);
+
+    let FAT = Math.floor(searchResults.hits[resInd].recipe.totalNutrients.FAT.quantity/searchResults.hits[resInd].recipe.yield);
+    let CARBS = Math.floor(searchResults.hits[resInd].recipe.totalNutrients.CA.quantity/searchResults.hits[resInd].recipe.yield);
+    let PROT = Math.floor(searchResults.hits[resInd].recipe.totalNutrients.PROCNT.quantity/searchResults.hits[resInd].recipe.yield);
+
     $('.nutrition').html(`
-      
+      <h4>Nutrition Facts Per Serving</h4>
+      <ul>
+        <li>Calories: ${calCount}</li>
+        <li>Fat: ${FAT} ${searchResults.hits[resInd].recipe.totalNutrients.FAT.unit}</li>
+        <li>Carbohydrates: ${CARBS} ${searchResults.hits[resInd].recipe.totalNutrients.CA.unit}</li>
+        <li>Protein: ${PROT} ${searchResults.hits[resInd].recipe.totalNutrients.PROCNT.unit}</li>
+      </ul>
       `);
   });
-}
-
-
-              
+}    
 
 function watchSubmit() {
   $('.js-search-form').submit(event => {
@@ -189,6 +230,7 @@ function watchSubmit() {
   });
   showResult();
   returnToSearchResults();
+  newSearch();
 }
 
 $(watchSubmit);
