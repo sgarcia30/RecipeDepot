@@ -17,7 +17,7 @@
       <main role="main">
         <section class="APIdesc">
           <h1>Find something to cook</h1>
-          <p>Search by recipe or ingredient.  Refine search by the number of ingredients, diet, allergy, or calories.</p>
+          <p>Search by recipe or ingredient.  Refine search by the number of ingredients, nutrients, dietary restrictions, or calories.</p>
         </section>
 
           <form action="#" class="js-search-form">
@@ -25,11 +25,12 @@
             <input type="text" class="js-query" id="query" name="query" title="Recipe Search" placeholder="e.g. carrot cake, 15 bean soup, broccoli">
             <button type="submit">Search</button>
             <br>
-            <label for="calRange">Calorie Range</label>
-            <input type="text" name="calRange" class="low"> to
+            <label for="calRange">Calorie Range:</label>
+            (min)
+            <input type="text" name="calRange" class="low"> (max)
             <input type="text" name="calRange" class="high"></input>
             <br>
-            <label for="numIng">Number of Ingredients</label>
+            <label for="numIng">Max Number of Ingredients</label>
             <input type="text" name="numIng" class="numIng">
             <fieldset>
               <legend>Diet</legend>
@@ -43,11 +44,11 @@
               <label for="diet">Low-carb</label>
             </fieldset>
             <fieldset>
-              <legend>Allergy</legend>
+              <legend>Dietary Restrictions</legend>
               <input type="checkbox" name="allergy" value="peanut-free">
-              <label for="allergy">Peanut</label>
+              <label for="allergy">Peanut-free</label>
               <input type="checkbox" name="allergy" value="tree-nut-free">
-              <label for="allergy">Tree-nut</label>
+              <label for="allergy">Tree-nut-free</label>
               <input type="checkbox" name="allergy" value="vegetarian">
               <label for="allergy">Vegetarian</label>
               <input type="checkbox" name="allergy" value="vegan">
