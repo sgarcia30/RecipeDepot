@@ -12,53 +12,57 @@
     </head>
     <body>
       <header>
-        Recipe Search Engine for Every Lifestyle!
+        Recipes for Your Lifestyle!
       </header>
       <main role="main">
-        <section class="APIdesc">
-          <h1>Find something to cook</h1>
-          <p>Search by recipe or ingredient.  Refine search by the number of ingredients, nutrients, dietary restrictions, or calories.</p>
-        </section>
+        <div class="instrucSearchBlock">
+          <section class="APIdesc">
+            <h1>Find something to eat</h1>
+            <p>Search by recipe or ingredient.  Refine search by the number of ingredients, nutrients, dietary restrictions, or calories.</p>
+          </section>
 
-          <form action="#" class="js-search-form">
-            <label for="query"></label>
-            <input type="text" class="js-query" id="query" name="query" title="Recipe Search" placeholder="e.g. carrot cake, 15 bean soup, broccoli">
-            <button type="submit">Search</button>
-            <br>
-            <label for="calRange">Calorie Range:</label>
-            (min)
-            <input type="text" name="calRange" class="low"> (max)
-            <input type="text" name="calRange" class="high"></input>
-            <br>
-            <label for="numIng">Max Number of Ingredients</label>
-            <input type="text" name="numIng" class="numIng">
-            <fieldset>
-              <legend>Diet</legend>
-              <input type="checkbox" name="diet" value="balanced">
-              <label for="diet">Balanced</label>
-              <input type="checkbox" name="diet" value="high-protein">
-              <label for="diet">High-protein</label>
-              <input type="checkbox" name="diet" value="low-fat">
-              <label for="diet">Low-fat</label>
-              <input type="checkbox" name="diet" value="low-carb">
-              <label for="diet">Low-carb</label>
-            </fieldset>
-            <fieldset>
-              <legend>Dietary Restrictions</legend>
-              <input type="checkbox" name="allergy" value="peanut-free">
-              <label for="allergy">Peanut-free</label>
-              <input type="checkbox" name="allergy" value="tree-nut-free">
-              <label for="allergy">Tree-nut-free</label>
-              <input type="checkbox" name="allergy" value="vegetarian">
-              <label for="allergy">Vegetarian</label>
-              <input type="checkbox" name="allergy" value="vegan">
-              <label for="allergy">Vegan</label>
-              <input type="checkbox" name="allergy" value="sugar-conscious">
-              <label for="allergy">Sugar-conscious</label>
-              <input type="checkbox" name="allergy" value="alcohol-free">
-              <label for="allergy">Alcohol-free</label>
-            </fieldset>
-          </form>
+          <section class="searchForm">
+            <form action="#" class="js-search-form">
+              <label for="query"></label>
+              <input type="text" class="js-query" id="query" name="query" title="Recipe Search" placeholder="e.g. carrot cake, lasagna, broccoli">
+              <button type="submit">Search</button>
+              <br>
+              <label for="calRange">Calorie Range:</label>
+              (min)
+              <input type="text" name="calRange" class="low"> (max)
+              <input type="text" name="calRange" class="high"></input>
+              <br>
+              <label for="numIng">Max Number of Ingredients</label>
+              <input type="text" name="numIng" class="numIng">
+              <fieldset class="diet">
+                <legend>Diet</legend>
+                <input type="checkbox" name="diet" value="balanced">
+                <label for="diet">Balanced</label>
+                <input type="checkbox" name="diet" value="high-protein">
+                <label for="diet">High-protein</label>
+                <input type="checkbox" name="diet" value="low-fat">
+                <label for="diet">Low-fat</label>
+                <input type="checkbox" name="diet" value="low-carb">
+                <label for="diet">Low-carb</label>
+              </fieldset>
+              <fieldset class="allergy">
+                <legend>Dietary Restrictions</legend>
+                <input type="checkbox" name="allergy" value="peanut-free">
+                <label for="allergy">Peanut-free</label>
+                <input type="checkbox" name="allergy" value="tree-nut-free">
+                <label for="allergy">Tree-nut-free</label>
+                <input type="checkbox" name="allergy" value="vegetarian">
+                <label for="allergy">Vegetarian</label>
+                <input type="checkbox" name="allergy" value="vegan">
+                <label for="allergy">Vegan</label>
+                <input type="checkbox" name="allergy" value="sugar-conscious">
+                <label for="allergy">Sugar-conscious</label>
+                <input type="checkbox" name="allergy" value="alcohol-free">
+                <label for="allergy">Alcohol-free</label>
+              </fieldset>
+            </form>
+          </section>
+      </div>
           
           <div class="searchParameters">
             

@@ -9,6 +9,9 @@
 
 body {
 	margin: 0;
+	font-family: "Helvetica";
+	background-color: #e6e6ff;
+	/*background-color: #ccccff;*/
 }
 
 main {
@@ -27,12 +30,24 @@ header {
 	padding-top: 25px;
 }
 
+.instrucSearchBlock {
+	background-color: white;
+	border:	5px;
+	border-radius: 10px;
+	border-color: #ccc;
+	margin-left: 25%;
+	margin-right: 25%;
+	padding: 20px;
+}
+
 input {
 	margin-bottom: 10px;
 }
 
 fieldset {
-	border-style: none;
+	border: none;
+	padding: 0;
+	margin: 0;
 }
 
 #query {
