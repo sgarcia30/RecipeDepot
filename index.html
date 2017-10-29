@@ -17,7 +17,7 @@
       <main role="main">
         <div class="instrucSearchBlock">
           <section class="APIdesc">
-            <h1>Find something to eat</h1>
+            <h1>Find something to eat!</h1>
             <p>Search by recipe or ingredient.  Refine search by the number of ingredients, nutrients, dietary restrictions, or calories.</p>
           </section>
 
@@ -25,17 +25,17 @@
             <form action="#" class="js-search-form">
               <label for="query"></label>
               <input type="text" class="js-query" id="query" name="query" title="Recipe Search" placeholder="e.g. carrot cake, lasagna, broccoli">
-              <button type="submit">Search</button>
-              <br>
+              <button type="submit" class="qSubmit">Search</button>
+              <h3>Refine Search:</h3> 
               <label for="calRange">Calorie Range:</label>
               (min)
               <input type="text" name="calRange" class="low"> (max)
               <input type="text" name="calRange" class="high"></input>
               <br>
-              <label for="numIng">Max Number of Ingredients</label>
+              <label for="numIng">Max Number of Ingredients:</label>
               <input type="text" name="numIng" class="numIng">
               <fieldset class="diet">
-                <legend>Diet</legend>
+                <legend>Nutrition</legend>
                 <input type="checkbox" name="diet" value="balanced">
                 <label for="diet">Balanced</label>
                 <input type="checkbox" name="diet" value="high-protein">
@@ -55,6 +55,7 @@
                 <label for="allergy">Vegetarian</label>
                 <input type="checkbox" name="allergy" value="vegan">
                 <label for="allergy">Vegan</label>
+                <br>
                 <input type="checkbox" name="allergy" value="sugar-conscious">
                 <label for="allergy">Sugar-conscious</label>
                 <input type="checkbox" name="allergy" value="alcohol-free">
@@ -64,11 +65,13 @@
           </section>
       </div>
           
-          <div class="searchParameters">
-            
-          </div>
-          <div class="newSearch">
-            
+          <div class="searchInfo">
+            <div class="searchParameters">
+              
+            </div>
+            <div class="newSearch">
+              
+            </div>
           </div>
           <div class="js-search-results">
             

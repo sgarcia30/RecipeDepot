@@ -54,30 +54,31 @@ function renderResult(result, index) {
 
   return `
     <div class="resRecipe">
-      <h2>
+      <h2 class="recipeLabel">
       ${result.recipe.label}
       </h2>
       <h3>
       <img src="${itemImg}" alt="${result.recipe.label}" class="imgResult"/>
       </h3>
-      <div>
+      <div class="recipeSpecs">
       Number of Ingredients: ${result.recipe.ingredients.length}
       | Calories per Serving: ${calCount}
       </div>
     </div>
+    <hr>
   `;
 }
 
 // This function hides the form & instructions
 function hideSearchEng() {
   $('.js-search-form').hide();
-  $('.APIdesc').hide();
+  $('.instrucSearchBlock').hide();
 }
 
 function showSearchParameters() {
    $('.searchParameters').html(`
       <h2>Search Term: ${searchResults.params.q}</h2>
-      Advance Search Parameters
+      <p class="advSearch">Advance Search Parameters</p>
       <ul> 
         <li>Calories: ${calValue}</li>
         <li>Max Number of Ingredients: ${numIng}</li>
@@ -97,7 +98,7 @@ function returnToSearchResults() {
 function newSearch() {
   $('.newSearch').on('click', '.newSearchBut', function() {
     $('.js-search-form').show();
-    $('.APIdesc').show();
+    $('.instrucSearchBlock').show();
     $('.oneResult').hide();
     $('.js-search-results').hide();
     $('.searchParameters').hide();
