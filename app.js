@@ -120,7 +120,7 @@ function displayRecipeSearchData(data) {
   showSearchParameters();
   showNewSearchOption();
   $('.searchParameters').show();
-    $('.newSearch').show();
+  $('.newSearch').show();
   $('.js-search-results').show();
   $('.js-search-results').html(results);
 }
@@ -139,7 +139,9 @@ function showResult() {
   $('.js-search-results').on('click', '.resRecipe', function() {
     hideResults();
     $('.oneResult').show();
+    console.log(this);
     let resInd = $(this).index();
+    console.log(resInd);
     $('.recipeInfo').html(`
       <button type="submit" name="returnSearch" class="returnSearch">Search Results</button>
       <h2>
@@ -184,7 +186,13 @@ function showResult() {
       </ul>
       `);
   });
-}    
+}   
+
+function startSearch() {
+  $('.iconSearch').on('click', function() {
+    
+  });
+} 
 
 function watchSubmit() {
   $('.js-search-form').submit(event => {
