@@ -48,12 +48,14 @@ function renderResult(result, index) {
   calCount = Math.floor(result.recipe.calories/result.recipe.yield);
   
   let itemImg = "http://www.readersdigest.ca/wp-content/uploads/2011/01/4-ways-cheer-up-depressed-cat.jpg";
-  if (result.recipe.image !== "https://www.edamam.com/web-img/d10/d10f3cd0564a9c2a4a7db3e1b49041f8.gif") {
+  imgEnd = result.recipe.image.substr(result.recipe.image.length - 3);
+  imgEnd4 = result.recipe.image.substr(result.recipe.image.length - 4);
+  if (imgEnd === "jpg" ||  imgEnd4 === "jpeg") {
     itemImg = result.recipe.image;
   }
 
   return `
-    <div class="resRecipe">
+    <div class="resRecipe" data-id="${index}">
       <h2 class="recipeLabel">
       ${result.recipe.label}
       </h2>
@@ -103,6 +105,7 @@ function newSearch() {
     $('.js-search-results').hide();
     $('.searchParameters').hide();
     $('.newSearch').hide();
+    $('.searchInfo').hide();
   })
 }
 
@@ -119,6 +122,7 @@ function displayRecipeSearchData(data) {
   hideSearchEng();
   showSearchParameters();
   showNewSearchOption();
+  $('.searchInfo').show();
   $('.searchParameters').show();
   $('.newSearch').show();
   $('.js-search-results').show();
@@ -140,8 +144,11 @@ function showResult() {
     hideResults();
     $('.oneResult').show();
     console.log(this);
-    let resInd = $(this).index();
+    let resInd = $(this).attr("data-id");
     console.log(resInd);
+    window.scrollTo(0, 0);
+
+    console.log(searchResults.hits[resInd].recipe.image);
     $('.recipeInfo').html(`
       <button type="submit" name="returnSearch" class="returnSearch">Search Results</button>
       <h2>
@@ -187,12 +194,6 @@ function showResult() {
       `);
   });
 }   
-
-function startSearch() {
-  $('.iconSearch').on('click', function() {
-    
-  });
-} 
 
 function watchSubmit() {
   $('.js-search-form').submit(event => {
@@ -242,4 +243,10 @@ function watchSubmit() {
   newSearch();
 }
 
+// function startSearch() {
+//   console.log('hello world');
+//   $('.searchInfo').hide();
+// } 
+
 $(watchSubmit);
+// $(startSearch);

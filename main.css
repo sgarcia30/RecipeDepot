@@ -45,6 +45,10 @@ h1, h3, h2 {
 	margin-bottom: 50px;
 }
 
+.searchInfo {
+	display: none;
+}
+
 .recipeLabel {
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -108,4 +112,11 @@ legend {
 
 .instrucBut{
 	border: 1px solid #999;
+}
+
+@media only screen and (max-width: 640px) {
+	.allergy {
+		display: block;
+		background-color: red;
+	}
 }
