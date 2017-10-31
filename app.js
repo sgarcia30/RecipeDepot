@@ -7,7 +7,6 @@ let dietLabel;
 let allergyLab;
 let searchResults;
 let calValue;
-let calCount;
 
 
 function getDataFromApi(searchTerm, callback, numIng, calRange, dietLabel, allergyLab) {
@@ -45,12 +44,11 @@ function getDataFromApi(searchTerm, callback, numIng, calRange, dietLabel, aller
 }
 
 function renderResult(result, index) {
-  calCount = Math.floor(result.recipe.calories/result.recipe.yield);
-  
+  let calCount = Math.floor(result.recipe.calories/result.recipe.yield);  
   let itemImg = "http://toogoodtogo.co.uk/wp-content/uploads/2016/02/icon3_cutlery-300x300.png";
   imgEnd = result.recipe.image.substr(result.recipe.image.length - 3);
   imgEnd4 = result.recipe.image.substr(result.recipe.image.length - 4);
-  if (imgEnd === "jpg" ||  imgEnd4 === "jpeg") {
+  if (imgEnd === "jpg" ||  imgEnd4 === "jpeg" || imgEnd === "png" || imgEnd === "JPG") {
     itemImg = result.recipe.image;
   }
 
@@ -91,9 +89,10 @@ function showSearchParameters() {
 }
 
 function returnToSearchResults() {
-  $('.oneResult').on('click', '.returnSearch', function() {
+  $('.returnSearch').on('click', '.returnSearchBut', function() {
     $('.js-search-results').show();
     $('.oneResult').hide();
+    $('.returnSearch').hide();
   })
 }
 
@@ -146,8 +145,11 @@ function showResult() {
     let resInd = $(this).attr("data-id");
     window.scrollTo(0, 0);
 
+    $('.returnSearch').html(`
+      <button type="submit" name="returnSearch" class="returnSearchBut">Return to Search Results</button>
+    `);
+
     $('.recipeInfo').html(`
-      <button type="submit" name="returnSearch" class="returnSearch">Search Results</button>
       <h2>
         ${searchResults.hits[resInd].recipe.label}
       </h2>
@@ -156,8 +158,8 @@ function showResult() {
       </h3>
     `);
 
-    $('.ingredients').html(`
-      <h4>${searchResults.hits[resInd].recipe.ingredients.length} Ingredients</h4>
+    $('.servings').html(`
+      <h4>${searchResults.hits[resInd].recipe.yield} Servings</h4>
       <ul class="liIng">          
       </ul>
     `);
@@ -176,16 +178,18 @@ function showResult() {
       <a class="instrucBut" target="_blank" href=${url}>Instructions</a>
     `);
 
-    let FAT = Math.floor(searchResults.hits[resInd].recipe.totalNutrients.FAT.quantity/searchResults.hits[resInd].recipe.yield);
-    let CARBS = Math.floor(searchResults.hits[resInd].recipe.totalNutrients.CA.quantity/searchResults.hits[resInd].recipe.yield);
-    let PROT = Math.floor(searchResults.hits[resInd].recipe.totalNutrients.PROCNT.quantity/searchResults.hits[resInd].recipe.yield);
+
+    let calVal = Math.floor(searchResults.hits[resInd].recipe.calories/searchResults.hits[resInd].recipe.yield);
+    let FAT = Math.ceil(searchResults.hits[resInd].recipe.totalNutrients.FAT.quantity/searchResults.hits[resInd].recipe.yield);
+    let CARBS = Math.ceil(searchResults.hits[resInd].recipe.totalNutrients.CHOCDF.quantity/searchResults.hits[resInd].recipe.yield);
+    let PROT = Math.ceil(searchResults.hits[resInd].recipe.totalNutrients.PROCNT.quantity/searchResults.hits[resInd].recipe.yield);
 
     $('.nutrition').html(`
       <h4>Nutrition Facts Per Serving</h4>
       <ul>
-        <li>Calories: ${calCount}</li>
+        <li>Calories: ${calVal}</li>
         <li>Fat: ${FAT} ${searchResults.hits[resInd].recipe.totalNutrients.FAT.unit}</li>
-        <li>Carbohydrates: ${CARBS} ${searchResults.hits[resInd].recipe.totalNutrients.CA.unit}</li>
+        <li>Carbohydrates: ${CARBS} ${searchResults.hits[resInd].recipe.totalNutrients.CHOCDF.unit}</li>
         <li>Protein: ${PROT} ${searchResults.hits[resInd].recipe.totalNutrients.PROCNT.unit}</li>
       </ul>
       `);

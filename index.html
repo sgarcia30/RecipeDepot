@@ -1,97 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>Recipe Depot</title>
-        <link href="main.css" rel="stylesheet" type="text/css" />
-    </head>
-    <body>
-      <header>
-        Recipes for Your Lifestyle!
-      </header>
-      <main role="main" class="mainSearchPage">
-        <div class="instrucSearchBlock">
-          <section class="APIdesc">
-            <h1>Find something to eat!</h1>
-            <p>Search by recipe or ingredient.  Refine search by the number of ingredients, nutrients, dietary restrictions, or calories.</p>
-          </section>
-
-          <section class="searchForm">
-            <form action="#" class="js-search-form">
-              <label for="query"></label>
-              <input type="text" class="js-query" id="query" name="query" title="Recipe Search" placeholder="e.g. carrot cake, lasagna, broccoli">
-              <button type="submit" class="qSubmit">Search</button>
-              <h3>Refine Search:</h3> 
-              <label for="calRange">Calorie Range:</label>
-              (min)
-              <input type="text" name="calRange" class="low"> (max)
-              <input type="text" name="calRange" class="high"></input>
-              <br>
-              <label for="numIng">Max Number of Ingredients:</label>
-              <input type="text" name="numIng" class="numIng">
-              <fieldset class="diet">
-                <legend>Nutrition</legend>
-                <input type="checkbox" name="diet" value="balanced">
-                <label for="diet">Balanced</label>
-                <input type="checkbox" name="diet" value="high-protein">
-                <label for="diet">High-protein</label>
-                <input type="checkbox" name="diet" value="low-fat">
-                <label for="diet">Low-fat</label>
-                <input type="checkbox" name="diet" value="low-carb">
-                <label for="diet">Low-carb</label>
-              </fieldset>
-              <fieldset class="allergy">
-                <legend>Dietary Restrictions</legend>
-                <input type="checkbox" name="allergy" value="peanut-free">
-                <label for="allergy">Peanut-free</label>
-                <input type="checkbox" name="allergy" value="tree-nut-free">
-                <label for="allergy">Tree-nut-free</label>
-                <input type="checkbox" name="allergy" value="vegetarian">
-                <label for="allergy">Vegetarian</label>
-                <input type="checkbox" name="allergy" value="vegan">
-                <label for="allergy">Vegan</label>
-                <br>
-                <input type="checkbox" name="allergy" value="sugar-conscious">
-                <label for="allergy">Sugar-conscious</label>
-                <input type="checkbox" name="allergy" value="alcohol-free">
-                <label for="allergy">Alcohol-free</label>
-              </fieldset>
-            </form>
-          </section>
-      </div>
-          
-          <div class="searchInfo">
-            <div class="searchParameters">
-              
-            </div>
-            <div class="newSearch">
-              
-            </div>
-          </div>
-          <div class="js-search-results">
-            
-          </div>
-          <div class="oneResult">
-            <div class="recipeInfo">
-              
-            </div>
-            <div class="ingredients">
-              
-            </div>
-            <div class="prep">
-              
-            </div>
-            <div class="nutrition">
-
-            </div>
-          </div>
-      </main>
-      <script
-          src="https://code.jquery.com/jquery-3.2.1.min.js"
-          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-          crossorigin="anonymous">
-      </script>
-      <script src="app.js"></script>
-    </body>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Recipe Depot</title>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <link href="initial.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="outerDiv">
+    <div class="getStarted">
+      Want to find something delicious to eat?
+      <br>
+      <a href="main.html">
+        <span class="search">Let's get started!</span><br>
+        <br>
+        <img class="iconSearch" src="http://dietburners.com/wp-content/uploads/2016/11/food.png" alt="fork and plate">
+      </a>
+    </div>
+  </div>
+</body>
 </html>
