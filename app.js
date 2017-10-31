@@ -47,7 +47,7 @@ function getDataFromApi(searchTerm, callback, numIng, calRange, dietLabel, aller
 function renderResult(result, index) {
   calCount = Math.floor(result.recipe.calories/result.recipe.yield);
   
-  let itemImg = "http://www.readersdigest.ca/wp-content/uploads/2011/01/4-ways-cheer-up-depressed-cat.jpg";
+  let itemImg = "http://toogoodtogo.co.uk/wp-content/uploads/2016/02/icon3_cutlery-300x300.png";
   imgEnd = result.recipe.image.substr(result.recipe.image.length - 3);
   imgEnd4 = result.recipe.image.substr(result.recipe.image.length - 4);
   if (imgEnd === "jpg" ||  imgEnd4 === "jpeg") {
@@ -63,8 +63,8 @@ function renderResult(result, index) {
       <img src="${itemImg}" alt="${result.recipe.label}" class="imgResult"/>
       </h3>
       <div class="recipeSpecs">
-      Number of Ingredients: ${result.recipe.ingredients.length}
-      | Calories per Serving: ${calCount}
+      <strong>Number of Ingredients: ${result.recipe.ingredients.length}
+      | Calories per Serving: ${calCount}</strong>
       </div>
     </div>
     <hr>
@@ -79,13 +79,13 @@ function hideSearchEng() {
 
 function showSearchParameters() {
    $('.searchParameters').html(`
-      <h2>Search Term: ${searchResults.params.q}</h2>
-      <p class="advSearch">Advance Search Parameters</p>
+      <h2 class="searchTerm">Search Term: ${searchResults.params.q}</h2>
+      <p class="advSearch">Search Refined By</p>
       <ul> 
-        <li>Calories: ${calValue}</li>
-        <li>Max Number of Ingredients: ${numIng}</li>
-        <li>Diet Labels: ${dietLabel}</li>
-        <li>Allergies: ${allergyLab}</li>
+        <li><strong>Calories - </strong>${calValue}</li>
+        <li><strong>Max Number of Ingredients - </strong>${numIng}</li>
+        <li><strong>Diet Labels - </strong>${dietLabel}</li>
+        <li><strong>Allergies - </strong>${allergyLab}</li>
       </ul>
     `);
 }
@@ -143,12 +143,9 @@ function showResult() {
   $('.js-search-results').on('click', '.resRecipe', function() {
     hideResults();
     $('.oneResult').show();
-    console.log(this);
     let resInd = $(this).attr("data-id");
-    console.log(resInd);
     window.scrollTo(0, 0);
 
-    console.log(searchResults.hits[resInd].recipe.image);
     $('.recipeInfo').html(`
       <button type="submit" name="returnSearch" class="returnSearch">Search Results</button>
       <h2>
@@ -243,10 +240,4 @@ function watchSubmit() {
   newSearch();
 }
 
-// function startSearch() {
-//   console.log('hello world');
-//   $('.searchInfo').hide();
-// } 
-
 $(watchSubmit);
-// $(startSearch);

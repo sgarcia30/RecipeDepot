@@ -4,7 +4,6 @@
 
 .navBut {
 	display: inline-block;
-	/*margin-right: 5px;*/
 }
 
 body {
@@ -47,6 +46,19 @@ h1, h3, h2 {
 
 .searchInfo {
 	display: none;
+	text-decoration: none;
+	margin-left: 33.3%;
+	margin-right: 33.3%;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0;
+	margin-top: 8px;
+}
+
+.newSearch {
+	text-align: center;
 }
 
 .recipeLabel {
@@ -60,6 +72,13 @@ h1, h3, h2 {
 
 .advSearch {
 	font-weight: 700;
+	margin-bottom: 8px;
+	font-size: 20px;
+	text-decoration: underline;
+}
+
+.searchTerm {
+	text-align: center;
 }
 
 hr {
@@ -68,10 +87,6 @@ hr {
 	box-shadow: 0 15px 15px -15px #8c8b8b inset;
 }
 
-/*.searchParameters {
-	visibility: hidden;
-}
-*/
 input {
 	margin-bottom: 10px;
 	font-size: 15px;
@@ -112,6 +127,13 @@ legend {
 
 .instrucBut{
 	border: 1px solid #999;
+}
+
+.newSearchBut {
+	padding: 10px 10px;
+	width: 30%;
+	border-radius: 5px;
+	font-size: 15px;
 }
 
 @media only screen and (max-width: 640px) {
