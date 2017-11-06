@@ -80,16 +80,16 @@ function showSearchParameters() {
       <h2 class="searchTerm">Search Term: ${searchResults.params.q}</h2>
       <p class="advSearch">Search Refined By</p>
       <ul> 
-        <li><strong>Calories - </strong>${calValue}</li>
-        <li><strong>Max Number of Ingredients - </strong>${numIng}</li>
-        <li><strong>Diet Labels - </strong>${dietLabel}</li>
-        <li><strong>Allergies - </strong>${allergyLab}</li>
+        <li class="bull"><strong>Calories - </strong>${calValue}</li>
+        <li class="bull"><strong>Max Number of Ingredients - </strong>${numIng}</li>
+        <li class="bull"><strong>Diet Labels - </strong>${dietLabel}</li>
+        <li class="bull"><strong>Allergies - </strong>${allergyLab}</li>
       </ul>
     `);
 }
 
 function returnToSearchResults() {
-  $('.returnSearch').on('click', '.returnSearchBut', function() {
+  $('.returnSearch').on('click', function() {
     $('.js-search-results').show();
     $('.oneResult').hide();
     $('.returnSearch').hide();
@@ -117,15 +117,22 @@ function showNewSearchOption() {
 function displayRecipeSearchData(data) {
   console.log(data);
   searchResults = data;
-  const results = data.hits.map((item, index) => renderResult(item, index));
-  hideSearchEng();
-  showSearchParameters();
-  showNewSearchOption();
-  $('.searchInfo').show();
-  $('.searchParameters').show();
-  $('.newSearch').show();
-  $('.js-search-results').show();
-  $('.js-search-results').html(results);
+  if (data.count < 1) {
+    $('.error').show();
+    $('.error').text('There are no results.')
+  }
+  else {
+    $('.error').hide();
+    const results = data.hits.map((item, index) => renderResult(item, index));
+    hideSearchEng();
+    showSearchParameters();
+    showNewSearchOption();
+    $('.searchInfo').show();
+    $('.searchParameters').show();
+    $('.newSearch').show();
+    $('.js-search-results').show();
+    $('.js-search-results').html(results);
+  }
 }
 
 function hideResults() {
@@ -134,7 +141,7 @@ function hideResults() {
 
 function renderIngList(item, index) {
   return `
-    <li>${item}</li>
+    <li class="bull">${item}</li>
   `;
 }
 
@@ -142,12 +149,9 @@ function showResult() {
   $('.js-search-results').on('click', '.resRecipe', function() {
     hideResults();
     $('.oneResult').show();
+    $('.returnSearch').show();
     let resInd = $(this).attr("data-id");
     window.scrollTo(0, 0);
-
-    $('.returnSearch').html(`
-      <button type="submit" name="returnSearch" class="returnSearchBut">Return to Search Results</button>
-    `);
 
     $('.recipeInfo').html(`
       <h2>
@@ -159,8 +163,8 @@ function showResult() {
     `);
 
     $('.servings').html(`
-      <h4>${searchResults.hits[resInd].recipe.yield} Servings</h4>
-      <ul class="liIng">          
+      <h4>Serves ${searchResults.hits[resInd].recipe.yield}</h4>
+      <ul class="liIng"> <strong>Ingredient List</strong>         
       </ul>
     `);
 
@@ -187,16 +191,17 @@ function showResult() {
     $('.nutrition').html(`
       <h4>Nutrition Facts Per Serving</h4>
       <ul>
-        <li>Calories: ${calVal}</li>
-        <li>Fat: ${FAT} ${searchResults.hits[resInd].recipe.totalNutrients.FAT.unit}</li>
-        <li>Carbohydrates: ${CARBS} ${searchResults.hits[resInd].recipe.totalNutrients.CHOCDF.unit}</li>
-        <li>Protein: ${PROT} ${searchResults.hits[resInd].recipe.totalNutrients.PROCNT.unit}</li>
+        <li class="bull">Calories: ${calVal}</li>
+        <li class="bull">Fat: ${FAT} ${searchResults.hits[resInd].recipe.totalNutrients.FAT.unit}</li>
+        <li class="bull">Carbohydrates: ${CARBS} ${searchResults.hits[resInd].recipe.totalNutrients.CHOCDF.unit}</li>
+        <li class="bull">Protein: ${PROT} ${searchResults.hits[resInd].recipe.totalNutrients.PROCNT.unit}</li>
       </ul>
       `);
   });
 }   
 
 function watchSubmit() {
+  $('.returnSearch').hide();
   $('.js-search-form').submit(event => {
     event.preventDefault();
     // Get recipe or ingredient search term
@@ -238,6 +243,7 @@ function watchSubmit() {
 
     // Call function to get data from API
     getDataFromApi(qVal, displayRecipeSearchData, numIng, calRange, dietLabel, allergyLab);
+    $('.returnSearch').hide();
   });
   showResult();
   returnToSearchResults();

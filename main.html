@@ -4,10 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <title>Recipe Depot</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
         <link href="main.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
       <header>
+        <i class="fa fa-arrow-circle-o-left fa-lg returnSearch"></i>
         Recipes for Your Lifestyle!
       </header>
       <main role="main" class="mainSearchPage">
@@ -19,6 +21,8 @@
 
           <section class="searchForm">
             <form action="#" class="js-search-form">
+              <p class="error">
+              </p>
               <label for="query"></label>
               <input type="text" class="js-query" id="query" name="query" title="Recipe Search" placeholder="e.g. carrot cake, lasagna, broccoli">
               <button type="submit" class="qSubmit">Search</button>
@@ -62,31 +66,37 @@
       </div>
           
           <div class="searchInfo">
+
             <div class="searchParameters">
               
             </div>
-            <div class="newSearch">
-              
-            </div>
-            <div class = "returnSearch">
-              
+            <div class="buttons">
+              <div class="newSearch">
+                
+              </div>
             </div>
           </div>
           <div class="js-search-results">
             
           </div>
           <div class="oneResult">
-            <div class="recipeInfo">
-              
-            </div>
-            <div class="servings">
-              
-            </div>
-            <div class="prep">
-              
-            </div>
-            <div class="nutrition">
+            <div class="row">
+              <div class="recipeInfo col-2">
+                
+              </div>
+              <div class="col-2">
+                <div class="prep">
+                  
+                </div>
+                <div class="nutrition">
 
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="servings col-1">
+                
+              </div>
             </div>
           </div>
       </main>
