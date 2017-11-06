@@ -10,7 +10,6 @@ body {
 	margin: 0;
 	font-family: "Helvetica";
 	background-color: #e6e6ff;
-	/*background-color: #ccccff;*/
 }
 
 main {
@@ -21,7 +20,6 @@ main {
 
 header {
 	color: white;
-	background-color: #0066ff;
 	background-color: #0E8145;
 	text-align: center;
 	left: 0;
@@ -34,9 +32,23 @@ header {
 	z-index: 1000;
 }
 
+.recInfo {
+	text-align: center;
+}
+
 h1, h3, h2 {
 	margin-top: 0;
 	margin-bottom: 5px;
+}
+
+.error {
+	color: red;
+	font-size: 24px;
+	font-weight: 700;
+}
+
+h4 {
+	margin-bottom: 10px;
 }
 
 .instrucSearchBlock, .searchInfo {
@@ -142,19 +154,42 @@ legend {
 	margin-bottom: 5px;
 }
 
+.imgResult, .recipeLabel {
+	cursor: pointer;
+}
+
 .resRecipe {
 	text-align: center;
 }
 
 .instrucBut{
 	border: 1px solid #999;
+	line-height: 36px;
+    border-color: #BFBFBF;
+    padding: 10px;
+    background: linear-gradient(to bottom, #f7f7f7 0%, #ededed 100%);
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+a:visited { 
+    color: #0E8145;
+}
+
+a:hover { 
+    color: #0E8145;
+    border-color: #0E8145;
+
 }
 
 .newSearchBut {
 	padding: 12px 12px;
-	width: 50%;
+	width: 40%;
 	border-radius: 5px;
 	font-size: 15px;
+	cursor: pointer;
 }
 
 @media only screen and (min-width: 640px) {

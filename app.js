@@ -119,7 +119,7 @@ function displayRecipeSearchData(data) {
   searchResults = data;
   if (data.count < 1) {
     $('.error').show();
-    $('.error').text('There are no results.')
+    $('.error').text('No recipes found (0 hits)')
   }
   else {
     $('.error').hide();
@@ -154,16 +154,17 @@ function showResult() {
     window.scrollTo(0, 0);
 
     $('.recipeInfo').html(`
-      <h2>
+      <h2 class="recInfo">
         ${searchResults.hits[resInd].recipe.label}
       </h2>
-      <h3>
+      <h3 class=recInfo>
         <img src="${searchResults.hits[resInd].recipe.image}" alt="${searchResults.hits[resInd].recipe.label}" class="imgResult"/>
       </h3>
     `);
 
     $('.servings').html(`
       <h4>Serves ${searchResults.hits[resInd].recipe.yield}</h4>
+      <hr>
       <ul class="liIng"> <strong>Ingredient List</strong>         
       </ul>
     `);
@@ -179,7 +180,8 @@ function showResult() {
 
     $('.prep').html(`
       <h4>Recipe Instructions</h4>
-      <a class="instrucBut" target="_blank" href=${url}>Instructions</a>
+      <hr>
+      <a class="instrucBut" target="_blank" href=${url}><span class="instruc">Instructions</span></a>
     `);
 
 
@@ -190,6 +192,7 @@ function showResult() {
 
     $('.nutrition').html(`
       <h4>Nutrition Facts Per Serving</h4>
+      <hr>
       <ul>
         <li class="bull">Calories: ${calVal}</li>
         <li class="bull">Fat: ${FAT} ${searchResults.hits[resInd].recipe.totalNutrients.FAT.unit}</li>
