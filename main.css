@@ -25,8 +25,8 @@ header {
 	left: 0;
 	right: 0;
 	top: 0;
-	height: 100px;
-	font-size: 42px;
+	height: 13vh;
+	font-size: 7vw;
 	padding-top: 25px;
 	position: fixed;
 	z-index: 1000;
@@ -147,6 +147,7 @@ fieldset {
 	width: 15%;
 	border-radius: 5px;
 	font-size: 15px;
+	cursor: pointer;
 }
 
 legend {
@@ -190,39 +191,4 @@ a:hover {
 	border-radius: 5px;
 	font-size: 15px;
 	cursor: pointer;
-}
-
-@media only screen and (min-width: 640px) {
-	/*.allergy {
-		display: block;
-		background-color: red;
-	}*/
-
-	.col-2 {
-		width: 50%;
-	}
-}
-
-.row {
-  max-width: 1000px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin: 0 auto;
-}
-
-/* Clearfix */
-.row::before,
-.row::after {
-  display: table;
-  content: '';
-}
-
-.row::after {
-  clear: both;
-}
-
-.col-2 {
-  float: left;
-  padding-left: 1.04166666%;
-  padding-right: 1.04166666%;
 }
