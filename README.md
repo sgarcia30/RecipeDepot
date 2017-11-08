@@ -1,12 +1,12 @@
  #Recipe Depot
  Thinkful (https://www.thinkful.com/) first portfolio project - a responsive app for searching recipes based on ingredients and nutritional inputs.
  
--![Screenshots](https://github.com/sgarcia30/recipe_API/blob/master/recipeDepotStartPage.PNG)
-+![Screenshots](https://github.com/sgarcia30/recipe_API/blob/master/recipeDepotSearchPage.PNG)
--![Screenshots](https://github.com/sgarcia30/recipe_API/blob/master/recipeDepotResultsPage.PNG)
-+![Screenshots](https://github.com/sgarcia30/recipe_API/blob/master/recipeDepotResultsPage2.PNG)
--![Screenshots](https://github.com/sgarcia30/recipe_API/blob/master/recipeDepotSingleResultPage.PNG)
-+![Screenshots](https://github.com/sgarcia30/recipe_API/blob/master/recipeDepotSingleResultPage2.PNG)
+-![Screenshots](https://github.com/sgarcia30/RecipeDepot/blob/master/recipeDepotStartPage.PNG)
++![Screenshots](https://github.com/sgarcia30/RecipeDepot/blob/master/recipeDepotSearchPage.PNG)
+-![Screenshots](https://github.com/sgarcia30/RecipeDepot/blob/master/recipeDepotResultsPage.PNG)
++![Screenshots](https://github.com/sgarcia30/RecipeDepot/blob/master/recipeDepotResultsPage2.PNG)
+-![Screenshots](https://github.com/sgarcia30/RecipeDepot/blob/master/recipeDepotSingleResultPage.PNG)
++![Screenshots](https://github.com/sgarcia30/RecipeDepot/blob/master/recipeDepotSingleResultPage2.PNG)
  
  #Introduction
  Recipe Depot is an app that allows a user to search for a specific recipe or recipes with an specific ingredient and to further refine search
