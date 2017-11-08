@@ -1,0 +1,45 @@
+@media only screen and (min-width: 640px) {
+	.col-2 {
+		width: 50%;
+	}
+
+  header {
+    font-size: 42px;
+    height: 100px;
+  }
+
+  .instrucSearchBlock {
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+
+  .searchInfo {
+    margin-left: 33.3%;
+    margin-right: 33.3%;
+  }
+}
+
+.row {
+  max-width: 1000px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+  min-width: 300px;
+}
+
+/* Clearfix */
+.row::before,
+.row::after {
+  display: table;
+  content: '';
+}
+
+.row::after {
+  clear: both;
+}
+
+.col-2 {
+  float: left;
+  padding-left: 1.04166666%;
+  padding-right: 1.04166666%;
+}
