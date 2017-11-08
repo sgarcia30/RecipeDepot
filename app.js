@@ -1,5 +1,5 @@
+// Declare global variables
 const RECIPE_SEARCH_URL = 'https://api.edamam.com/search';
-
 let qVal;
 let numIng;
 let calRange;
@@ -8,7 +8,7 @@ let allergyLab;
 let searchResults;
 let calValue;
 
-
+// Uses ajax to get data from the API
 function getDataFromApi(searchTerm, callback, numIng, calRange, dietLabel, allergyLab) {
   const settings = {
     url: RECIPE_SEARCH_URL,
@@ -43,6 +43,7 @@ function getDataFromApi(searchTerm, callback, numIng, calRange, dietLabel, aller
   $.ajax(settings);
 }
 
+// Renders the results of the ajax call to the page
 function renderResult(result, index) {
   let calCount = Math.floor(result.recipe.calories/result.recipe.yield);  
   let itemImg = "http://toogoodtogo.co.uk/wp-content/uploads/2016/02/icon3_cutlery-300x300.png";
@@ -75,6 +76,7 @@ function hideSearchEng() {
   $('.instrucSearchBlock').hide();
 }
 
+// This shows the search parameters used in a query
 function showSearchParameters() {
    $('.searchParameters').html(`
       <h2 class="searchTerm">Search Term: ${searchResults.params.q}</h2>
@@ -88,6 +90,7 @@ function showSearchParameters() {
     `);
 }
 
+// Allows the user to return to the search results from a single result
 function returnToSearchResults() {
   $('.returnSearch').on('click', function() {
     $('.js-search-results').show();
@@ -96,6 +99,7 @@ function returnToSearchResults() {
   })
 }
 
+// Allows the user to start a new search
 function newSearch() {
   $('.newSearch').on('click', '.newSearchBut', function() {
     $('.js-search-form').show();
@@ -109,12 +113,14 @@ function newSearch() {
   })
 }
 
+// Shows the new search button
 function showNewSearchOption() {
   $('.newSearch').html(`
     <button type="submit" name="newSearchBut" class="newSearchBut">New Search</button>
   `);
 }
 
+// Displays the search results
 function displayRecipeSearchData(data) {
   console.log(data);
   searchResults = data;
@@ -136,16 +142,19 @@ function displayRecipeSearchData(data) {
   }
 }
 
+// Hides the search results
 function hideResults() {
   $('.js-search-results').hide();
 }
 
+// Renders the ingredient list to the single search result page
 function renderIngList(item, index) {
   return `
     <li class="bull">${item}</li>
   `;
 }
 
+// Displays a single result information from the API data returned
 function showResult() {
   $('.js-search-results').on('click', '.resRecipe', function() {
     hideResults();
@@ -204,6 +213,7 @@ function showResult() {
   });
 }   
 
+// Watches for the search to be submitted
 function watchSubmit() {
   $('.returnSearch').hide();
   $('.js-search-form').submit(event => {
