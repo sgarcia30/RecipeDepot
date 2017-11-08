@@ -105,6 +105,7 @@ function newSearch() {
     $('.searchParameters').hide();
     $('.newSearch').hide();
     $('.searchInfo').hide();
+    $('.returnSearch').hide();
   })
 }
 

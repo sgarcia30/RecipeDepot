@@ -55,17 +55,15 @@ h4 {
 	background-color: white;
 	border:	5px solid gray;
 	border-radius: 10px;
-	margin-left: 25%;
-	margin-right: 25%;
 	padding: 20px;
 	margin-bottom: 50px;
+	min-width: 275px;
 }
 
 .searchInfo {
 	display: none;
 	text-decoration: none;
-	margin-left: 33.3%;
-	margin-right: 33.3%;
+	min-width: 365px;
 }
 
 .returnSearch {
@@ -144,7 +142,7 @@ fieldset {
 
 .qSubmit {
 	padding: 12px 12px;
-	width: 15%;
+	/*width: 15%;*/
 	border-radius: 5px;
 	font-size: 15px;
 	cursor: pointer;
@@ -161,6 +159,7 @@ legend {
 
 .resRecipe {
 	text-align: center;
+	min-width: 250px;
 }
 
 .instrucBut{
