@@ -10,7 +10,7 @@
  
  #Introduction
  Recipe Depot is an app that allows a user to search for a specific recipe or recipes with an specific ingredient and to further refine search
- criteria using calories, number of ingredients, nutrional inputs, and dietary restrictions.
+ criteria using calories, number of ingredients, nutritional inputs, and dietary restrictions.
 
  The results returned to the user can be browsed at a high level.  A single recipe can be selected for viewing.  Additional information about a 
  specific recipe can be seen on this page including: list of ingredients, nutritional info, and a link to the recipe instructions.
