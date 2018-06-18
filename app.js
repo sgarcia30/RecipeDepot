@@ -1,5 +1,5 @@
 // Declare global variables
-const RECIPE_SEARCH_URL = 'https://api.edamam.com/search';
+const RECIPE_SEARCH_URL = 'https://cors-anywhere.herokuapp.com/https://api.edamam.com/search';
 let qVal;
 let numIng;
 let calRange;
@@ -45,7 +45,7 @@ function getDataFromApi(searchTerm, callback, numIng, calRange, dietLabel, aller
 
 // Renders the results of the ajax call to the page
 function renderResult(result, index) {
-  let calCount = Math.floor(result.recipe.calories/result.recipe.yield);  
+  let calCount = Math.floor(result.recipe.calories/result.recipe.yield);
   let itemImg = "http://toogoodtogo.co.uk/wp-content/uploads/2016/02/icon3_cutlery-300x300.png";
   imgEnd = result.recipe.image.substr(result.recipe.image.length - 3);
   imgEnd4 = result.recipe.image.substr(result.recipe.image.length - 4);
@@ -81,7 +81,7 @@ function showSearchParameters() {
    $('.searchParameters').html(`
       <h2 class="searchTerm">Search Term: ${searchResults.params.q}</h2>
       <p class="advSearch">Search Refined By</p>
-      <ul> 
+      <ul>
         <li class="bull"><strong>Calories - </strong>${calValue}</li>
         <li class="bull"><strong>Max Number of Ingredients - </strong>${numIng}</li>
         <li class="bull"><strong>Diet Labels - </strong>${dietLabel}</li>
@@ -175,7 +175,7 @@ function showResult() {
     $('.servings').html(`
       <h4>Serves ${searchResults.hits[resInd].recipe.yield}</h4>
       <hr>
-      <ul class="liIng"> <strong>Ingredient List</strong>         
+      <ul class="liIng"> <strong>Ingredient List</strong>
       </ul>
     `);
 
@@ -211,7 +211,7 @@ function showResult() {
       </ul>
       `);
   });
-}   
+}
 
 // Watches for the search to be submitted
 function watchSubmit() {
