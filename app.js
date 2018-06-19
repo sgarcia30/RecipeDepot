@@ -1,5 +1,5 @@
 // Declare global variables
-const RECIPE_SEARCH_URL = 'https://cors-anywhere.herokuapp.com/https://api.edamam.com/search';
+const RECIPE_SEARCH_URL = 'https://api.edamam.com/search';
 let qVal;
 let numIng;
 let calRange;
