@@ -14,7 +14,7 @@ function getDataFromApi(searchTerm, callback, numIng, calRange, dietLabel, aller
     url: RECIPE_SEARCH_URL,
     data: {
       q: `${searchTerm}`,
-      app_key: 'ec9336245111d37ee12a4e9ae1777690',
+      app_key: '36756c5ab534f0e9b7b047940a2358d5',
       app_id: 'b3f870bd',
       from: 0,
       to: 30
