@@ -1,7 +1,7 @@
  #Recipe Depot
  Thinkful (https://www.thinkful.com/) first portfolio project - a responsive app for searching recipes based on ingredients and nutritional inputs.
  
--![Screenshots](https://github.com/sgarcia30/RecipeDepot/blob/master/recipeDepotStartPage.PNG)
+-![Screenshots](https://github.com/sgarcia30/RecipeDepot/blob/master/recipeDepotLandingPage.PNG)
 +![Screenshots](https://github.com/sgarcia30/RecipeDepot/blob/master/recipeDepotSearchPage.PNG)
 -![Screenshots](https://github.com/sgarcia30/RecipeDepot/blob/master/recipeDepotResultsPage.PNG)
 +![Screenshots](https://github.com/sgarcia30/RecipeDepot/blob/master/recipeDepotResultsPage2.PNG)
