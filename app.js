@@ -52,7 +52,6 @@ function renderResult(result, index) {
   if (imgEnd === "jpg" ||  imgEnd4 === "jpeg" || imgEnd === "png" || imgEnd === "JPG") {
     itemImg = result.recipe.image;
   }
-
   return `
     <div class="resRecipe" data-id="${index}">
       <h2 class="recipeLabel">
@@ -122,7 +121,6 @@ function showNewSearchOption() {
 
 // Displays the search results
 function displayRecipeSearchData(data) {
-  console.log(data);
   searchResults = data;
   if (data.count < 1) {
     $('.error').show();
