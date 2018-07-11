@@ -14,7 +14,7 @@ html {
   border-style: none;
   border-radius: 10px;
   color: white;
-  font-size: 20px;
+  font-size: 3.1vw;
   margin-top: 20px;
 }
 
@@ -43,5 +43,9 @@ a {
 @media only screen and (min-width: 640px) {
   .getStarted {
     font-size: 4.5vw;
+  }
+
+  .iconSearch {
+    font-size: 20px;
   }
 }
